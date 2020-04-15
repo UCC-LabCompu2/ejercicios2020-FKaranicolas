@@ -20,45 +20,45 @@
 <h3>Suscribase a Nuestro Portal de Noticias! Crear una cuenta es rápido!</h3>
 <form id="formulario_suscripcion">
     <p>
-        Nombre: <input type="text" name="nombre" placeholder="Nombre">
+        <label for="nombre">Nombre: </label> <input type="text" name="nombre" placeholder="Nombre" id="nombre">
     </p>
     <p>
-        Apellido: <input type="text" name="apellido" placeholder="Apellido">
+        <label for="apellido"> Apellido: </label> <input type="text" name="apellido" placeholder="Apellido" id="apellido">
     </p>
     <p>
-        Sexo: Masculino <input type="radio" name="sexo" value="masculino">
-        Femenino <input type="radio" name="sexo" value="femenino">
+        Sexo: <label for="masculino">Masculino</label> <input type="radio" name="sexo" value="masculino" id="masculino">
+        <label for="femenino">Femenino</label> <input type="radio" name="sexo" value="femenino" id="femenino">
     </p>
     <p>
-        Edad: <input type="mumber" name="edad" placeholder="edad">
+        <label for="edad"> Edad: </label> <input type="mumber" name="edad" placeholder="edad" id="edad">
     </p>
     <p>
-        Email: <input type="email" name="email" placeholder="email@dominio.com">
+        <label for="email"> Email: </label> <input type="email" name="email" placeholder="email@dominio.com" id="email">
     </p>
-    Usuario: <input type="text" name="usuario" placeholder="usuario">
-    </p>
-    <p>
-        Password: <input type="password" name="pass" placeholder="password">
+    <label for="usuario"> Usuario: </label> <input type="text" name="usuario" placeholder="usuario" id="usuario">
     </p>
     <p>
-        Confirmar Password: <input type="password" name="confirmar_pass" placeholder="password">
+        <label for="password"> Password: </label> <input type="password" name="pass" placeholder="password" id="password">
     </p>
     <p>
-        Tipo de servicio: Free <input type="checkbox" name="tipo_de_servicio" value="free"> /
-        Standard <input type="checkbox" name="tipo_de_servicio" value="standard"> /
-        Premium <input type="checkbox" name="tipo_de_servicio" value="premium">
+        <label for="confirmar_password"> Confirmar Password: </label> <input type="password" name="confirmar_pass" placeholder="password" id="confirmar_password">
     </p>
     <p>
-        Tema:
-        <select>
-            <option>Política</option>
-            <option>Negocios</option>
-            <option>Tecnología</option>
-            <option>Salud</option>
+        Tipo de servicio: <label for="Free">Free</label> <input type="checkbox" name="tipo_de_servicio" value="free" id="Free"> /
+        <label for="Standard">Standard</label> <input type="checkbox" name="tipo_de_servicio" value="standard" id="Standard"> /
+        <label for="Premium">Premium</label> <input type="checkbox" name="tipo_de_servicio" value="premium" id="Premium">
+    </p>
+    <p>
+        <label for="tema">Tema:</label>
+        <select id="tema">
+            <option value="politica">Política</option>
+            <option value="negocio">Negocios</option>
+            <option value="tecnologia">Tecnología</option>
+            <option value="salud">Salud</option>
         </select>
     </p>
     <p>
-        Agregue un comentario: <textarea> </textarea>
+        <label for="comentario">Agregue un comentario: </label> <textarea id="comentario"> </textarea>
     </p>
     <p>
         <button type="button">Boton de Enviar</button>
