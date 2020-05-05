@@ -1,14 +1,14 @@
 /**
- * Descripción
- * @method Nombre de la función
- * @param Parámetro A
- * @param Parámetro B
- * @return Valor que retorna
+ * Conversion de unidades de metros, yardas, pies y pulgadas.
+ * @method cambiarUnidades
+ * @param  {string} id - EL id de los imputs de metros, yardas, pies y pulgadas.
+ * @param {number} valor- El valor de metros, yardas, pies y pulgadas.
+ * @return
  */
 
 function cambiarUnidades(id, valor) {
     if (isNaN(valor)) {
-            alert("Se ingreso un valor inválido"+id);
+            alert("Se ingreso un valor inválido" + id);
             document.lasUnidades.unid_metro.value = "";
             document.lasUnidades.unid_pulgada.value = "";
             document.lasUnidades.unid_pie.value = "";
