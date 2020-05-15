@@ -22,11 +22,11 @@ function cambiarUnidades(id, valor) {
 
     if (isNaN(valor)) {
 
-            alert("Se ingreso un valor inválido " + id);
-            metro = "";
-            pulgada = "";
-            pie = "";
-            yarda = "";
+        alert("Se ingreso un valor inválido " + id);
+        metro = "";
+        pulgada = "";
+        pie = "";
+        yarda = "";
     } else if (id == "metro") {
         metro =valor;
         pulgada = 39.3701 * valor;
@@ -81,8 +81,8 @@ function calcularSuma() {
     var num1, num2;
 
     num1=Number(document.getElementsByName("sum_num1")[0].value);
-    num2=document.getElementsByName("sum_num2")[0].value;
-    document.getElementsByName("sum_total")[0].value= num1 + Number(num2);
+    num2=Number(document.getElementsByName("sum_num2")[0].value);
+    document.getElementsByName("sum_total")[0].innerHTML= num1 + num2;
 }
 
 function calcularResta() {
@@ -90,7 +90,7 @@ function calcularResta() {
 
     num1=Number(document.getElementsByName("res_num1")[0].value);
     num2=document.getElementsByName("res_num2")[0].value;
-    document.getElementsByName("res_total")[0].value= num1 - Number(num2);
+    document.getElementsByName("res_total")[0].innerHTML= num1 - Number(num2);
 }
 
 function calcularMultiplicacion() {
@@ -98,7 +98,7 @@ function calcularMultiplicacion() {
 
     num1=Number(document.getElementsByName("mul_num1")[0].value);
     num2=document.getElementsByName("mul_num2")[0].value;
-    document.getElementsByName("mul_total")[0].value= num1 * Number(num2);
+    document.getElementsByName("mul_total")[0].innerHTML= num1 * Number(num2);
 }
 
 function calcularDivision() {
@@ -106,5 +106,27 @@ function calcularDivision() {
 
     num1=Number(document.getElementsByName("div_num1")[0].value);
     num2=document.getElementsByName("div_num2")[0].value;
-    document.getElementsByName("div_total")[0].value= num1 / Number(num2);
+    document.getElementsByName("div_total")[0].innerHTML= num1 / Number(num2);
+}
+
+function cargarWeb() {
+    var cant, unidad, urlComp;
+
+    cant = document.getElementById("distancia").value;
+    unidad =document.getElementsByName("unidades")[0].value;
+
+    urlComp = "segundaWeb.html#" + cant + "#" + unidad;
+    window.open(urlComp);
+}
+
+function cargarResultado() {
+    var urlComp, can, un;
+
+    urlComp = window.location.href.split("/")[5];
+
+    can = urlComp.split("#")[1];
+    un =urlComp.split("#")[2];
+
+    document.getElementById("dist").value = can + " " + un;
+
 }
