@@ -130,3 +130,44 @@ function cargarResultado() {
     document.getElementById("dist").value = can + " " + un;
 
 }
+
+function dibujarCirCuad(){
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    var xMax = canvas.width;
+    var yMax = canvas.height;
+    var margen = 5;
+    ctx.fillStyle ="#333899";
+    ctx.fillRect(0+margen,yMax-40-margen,40,40);
+
+    ctx.arc(xMax/2, yMax/2,20,0,2*Math.PI);
+    ctx.stroke();
+    ctx.fillStyle ="#99121e";
+    ctx.fill();
+}
+
+var bandera;
+function dibujar(event) {
+    var canvas = document.getElementById("canvasAdibujar");
+    var ctx = canvas.getContext("2d");
+
+    var posX = event.clientX;
+    var posY = event.clientY;
+    console.log(posX, posY);
+    ctx.fillStyle ="#99121e";
+
+    canvas.onmousedown= function(){ bandera = true};
+    canvas.onmouseup = function (){ bandera = false};
+    if (bandera) {
+        ctx.fillRect(posX, posY, 5, 5);
+        ctx.fill;
+    }
+}
+
+function limpiarCanvas() {
+    var canvas = document.getElementById("canvasAdibujar");
+    var ctx = canvas.getContext("2d");
+
+    canvas.width = canvas.width;
+
+}
