@@ -169,5 +169,69 @@ function limpiarCanvas() {
     var ctx = canvas.getContext("2d");
 
     canvas.width = canvas.width;
+}
 
+function dibujarCuadriculado() {
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    var alturaMax = canvas.height;
+    var anchoMax = canvas.width;
+    //Dibujar lineas horizontales
+    ctx.beginPath();
+    for(var i=0;i<alturaMax;){
+        ctx.moveTo(0, i);
+        ctx.lineTo(anchoMax, i);
+        ctx.strokeStyle = "#9fb8d9";
+        ctx.stroke();
+        i=i+20;
+    }
+    ctx.closePath();
+
+    //Dibujar lineas horizontales
+    ctx.beginPath();
+    for(var i=0;i<anchoMax;){
+        ctx.moveTo(i, 0);
+        ctx.lineTo(i, alturaMax);
+        ctx.strokeStyle = "#9fb8d9";
+        ctx.stroke();
+        i=i+20;
+    }
+    ctx.closePath();
+
+    //Eje X
+    ctx.beginPath();
+    ctx.moveTo(0, alturaMax/2);
+    ctx.lineTo(anchoMax, alturaMax/2);
+    ctx.strokeStyle = "#d90005";
+    ctx.stroke();
+    ctx.closePath();
+
+    //Eje Y
+    ctx.beginPath();
+    ctx.moveTo(anchoMax/2, 0);
+    ctx.lineTo(anchoMax/2, alturaMax);
+    ctx.strokeStyle = "#d90005";
+    ctx.stroke();
+    ctx.closePath();
+}
+function limpiarCanvas() {
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    canvas.width = canvas.width;
+}
+function dibujarImagen(posX, posY) {
+    var canvas = document.getElementById("myCanvas");
+    var ctx= canvas.getContext("2d");
+
+    console.log(posX, posY);
+    var img = new Image();
+    img.src="images/auto.png";
+
+    canvas.width= canvas.width;
+
+    img.onload = function() {
+        ctx.drawImage(img, posX, posY);
+    }
 }
