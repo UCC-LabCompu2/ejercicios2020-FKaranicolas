@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pong</title>
+    <link href="estiloPong.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+
+<h1>Pong By Facu</h1>
+
+<canvas id="pongCanvas" width="480" height="320">
+    Tu navegador no soporta el tag de HTML5 canvas.
+</canvas>
+
+<script>
+
+    var canvas = document.getElementById("pongCanvas");
+    var ctx = canvas.getContext("2d");
+
+    var x = canvas.width/2;
+    var y = canvas.height-10;
+    var dx=2;
+    var dy=-2;
+
+    var pelota = {
+        radio: 10,
+        dibujar: function () {
+            ctx.beginPath();
+            ctx.arc(x, y, this.radio, 0, 2 * Math.PI);
+            ctx.fillStyle = "#0095DD";
+            ctx.fill();
+            ctx.closePath();
+        }
+    };
+
+    var barra = {
+        ancho: 75,
+        alto: 10,
+        posX: (canvas.width-75)/2,
+        dibujar: function(){
+            ctx.beginPath();
+            ctx.fillRect(this.posX, 310, this.ancho, this.alto);
+            ctx.fillStyle = "#0095DD";
+            ctx.fill;
+            ctx.closePath;
+            }
+    };
+    pelota.dibujar;
+
+    function dibujar() {
+        canvas.width=canvas.width;
+
+        //Rebotar izquierda y derecha
+        if(x+dx<pelota.radio || x+dx>canvas.width-pelota.radio ){
+            dx=-dx;
+        }
+        //Rebotar arriba y abajp
+        if(y+dy<pelota.radio|| y+dy>canvas.height-pelota.radio){
+            dy=-dy;
+        }
+        pelota.dibujar();
+        barra.dibujar();
+
+        x+=dx;
+        y+=dy;
+    }
+    setInterval(dibujar, 10);
+
+
+</script>
+
+</body>
+</html>
