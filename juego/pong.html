@@ -111,7 +111,7 @@
     function dibujarLadrillos() {
         for(c=0;c<columnas;c++){
             for(f=0;f<filas;f++){
-                if(matrizLadrillos[c][f].status == 1){
+                if(matrizLadrillos[c][f].status === 1){
                     ladrilloX = (c*(ladrillo.ancho+espaciado))+espacioIzq;
                     ladrilloY = (f*(ladrillo.alto+espaciado))+espacioSup;
                     matrizLadrillos[c][f].x = ladrilloX;
@@ -129,16 +129,16 @@
         for (c = 0; c < columnas; c++) {
             for (f = 0; f < filas; f++) {
                 var b=matrizLadrillos[c][f];
-                if(b.status == 1) {
+                if(b.status === 1) {
                     if (x >= b.x && x <= b.x + ladrillo.ancho && y >= b.y && y <= b.y + ladrillo.alto) {
                         dy = -dy;
                         b.status = 0;
-                        sonidoDestruccion.destruccion;
+                        sonidoDestruccion.play();
                         puntaje.puntos++;
 
-                        if (puntaje.puntos == filas * columnas) {
+                        if (puntaje.puntos === filas * columnas) {
+                            sonidoV.play();
                             alert("VICTORY!!!");
-                            sonidoV.win;
                             document.location.reload();
                         }
                     }
@@ -195,9 +195,9 @@
                 dy=-dy;
             }else{
                 puntaje.vidas--;
-                if(puntaje.vidas==0) {
+                if(puntaje.vidas===0) {
+                    sonidoP.play();
                     alert ("GAME OVER LOSER!");
-                    sonidoP.lose;
                     document.location.reload();
                 }else{
                     x=canvas.width/2;
